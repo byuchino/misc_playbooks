@@ -1,0 +1,97 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "id": "port_2_to_port_1",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "073442c65f3abe89a520769e7ba2565fc906158c",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "x": 1000,
+                    "y": 420
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
+                    "x": 1000,
+                    "y": 780
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Self Assign All Tasks",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "self_assign_all_tasks",
+                        "id": "2",
+                        "inputParameters": [
+                            "unassign=false"
+                        ],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "code",
+                    "userCode": "\n    un_assign    = input_parameter_0.split(\"=\")[1].lower()\n    id_value     = container.get(\"id\", None)\n    base_url     = phantom.build_phantom_rest_url('workflow_phase')\n    total_url    = base_url + \"?_filter_container_id=\\\"{0}\\\"\".format(str(id_value))\n    current_user = str(phantom.get_effective_user())\n    current_cont = id_value\n    task_list    = []\n    \n    response  = phantom.requests.get(total_url, verify=False)\n    \n    if response.status_code == 200:\n        \n        #make sure we at least have a \"data\" block in our returned json\n        try:\n            taskId_iter = response.json()[\"data\"]\n        except KeyError:\n            phantom.error(\"ERROR, cannot continue\")\n            phantom.error(\"Could not find the data subkey in the following json\")\n            phantom.error(response.text)\n            return\n        \n        #if we have a data block find our \"tasks\" list\n        for element_top in taskId_iter:\n            if \"tasks\" in element_top:\n                \n                #in our tasks lists pull each of our id's\n                for element_second in element_top[\"tasks\"]:\n                    if \"id\" in element_second:\n                        task_list.append(int(element_second[\"id\"]))\n                \n        #now that we have our task list set it to ourselves\n        for task_id in task_list:\n            \n            if un_assign == \"true\":\n                phantom.set_owner(container=current_cont, task_id=task_id, user=\"\")\n            else:\n                phantom.set_owner(container=current_cont, task_id=task_id, user=current_user)\n        \n        \n    else:\n        phantom.error(\"ERROR. Could not query local REST api.\")\n        phantom.error(total_url)\n        phantom.error(response.text)\n\n",
+                    "x": 980,
+                    "y": 580
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.3",
+        "version": "5.0.1.66250"
+    },
+    "create_time": "2025-03-13T19:05:18.413624+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}

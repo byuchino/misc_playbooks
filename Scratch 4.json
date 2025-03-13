@@ -1,0 +1,356 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_9_to_port_4",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "id": "port_4_to_port_10",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "10",
+                    "targetPort": "10_in"
+                },
+                {
+                    "id": "port_0_to_port_12",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                }
+            ],
+            "hash": "18f872cd778b8819e15253a18fd9304789729d72",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "x": 1340,
+                    "y": 120
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
+                    "x": 1000,
+                    "y": 680
+                },
+                "10": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 3,
+                        "functionName": "code_3",
+                        "id": "10",
+                        "inputParameters": [],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "10",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    phantom.debug(f'container:  {json.dumps(container, indent=4)}')\n\n",
+                    "x": 980,
+                    "y": 500
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "code_4",
+                        "id": "11",
+                        "inputParameters": [],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    id_value  = container.get(\"id\", None)\n    base_url  = phantom.build_phantom_rest_url('container')\n    total_url = base_url + \"/{0}\".format(str(id_value))\n    \n    phantom.debug(f'total_url:  {total_url}')\n    \n    response  = phantom.requests.get(total_url, verify=False)\n    jrsp = response.json()\n\n    if response.status_code == 200:\n        phantom.debug(\"success\")\n        phantom.debug(f'response:  {response}')\n        phantom.debug(f'jrsp:  {jrsp}')\n    else:\n        phantom.error(\"fail\")\n        phantom.error(f'response:  {response}')\n    \n",
+                    "x": 980,
+                    "y": 140
+                },
+                "12": {
+                    "data": {
+                        "action": "url reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "VirusTotal v3",
+                        "connectorConfigs": [
+                            "test_virustotal"
+                        ],
+                        "connectorId": "3fe4875d-a4a7-47d3-9ef1-f9e63a6653a4",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "url_reputation_1",
+                        "id": "12",
+                        "parameters": {
+                            "url": {
+                                "functionId": 1,
+                                "parameters": [
+                                    "artifact:*.cef.app"
+                                ],
+                                "template": "http://www.slashdot.org\n"
+                            }
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "url"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "action",
+                    "x": 1320,
+                    "y": 264.5
+                },
+                "3": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_Case_test_1",
+                        "id": "3",
+                        "inputs": {
+                            "Promotion Reason": {
+                                "datapaths": [
+                                    "just because"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "playbookName": "Case test",
+                        "playbookRepo": 4,
+                        "playbookRepoName": "phantom_pb_templates",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "playbook",
+                    "x": 660,
+                    "y": 260
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "container_update",
+                            "repoName": "community"
+                        },
+                        "functionId": 1,
+                        "functionName": "container_update_1",
+                        "id": "4",
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "container_update": {
+                                "description": "Allows updating various attributes of a container in a single custom function. Any attributes of a container not listed can be updated via the input_json parameter. ",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom container id"
+                                        ],
+                                        "description": "Supports a container id or container dictionary",
+                                        "inputType": "item",
+                                        "label": "container_input",
+                                        "name": "container_input",
+                                        "placeholder": "container:id",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change container name",
+                                        "inputType": "item",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "My Container Name",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container description",
+                                        "inputType": "item",
+                                        "label": "description",
+                                        "name": "description",
+                                        "placeholder": "My Container Description",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "phantom container label"
+                                        ],
+                                        "description": "Optional parameter to change the container label",
+                                        "inputType": "item",
+                                        "label": "label",
+                                        "name": "label",
+                                        "placeholder": "my_label",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container owner. Accepts a username or role name or keyword \"current\" to set the currently running playbook user as the owner.",
+                                        "inputType": "item",
+                                        "label": "owner",
+                                        "name": "owner",
+                                        "placeholder": "admin",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container sensitivity. ",
+                                        "inputType": "item",
+                                        "label": "sensitivity",
+                                        "name": "sensitivity",
+                                        "placeholder": "amber",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container severity.",
+                                        "inputType": "item",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "medium",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container status.",
+                                        "inputType": "item",
+                                        "label": "status",
+                                        "name": "status",
+                                        "placeholder": "open",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to change the container tags. Must be in the format of a comma separated list.",
+                                        "inputType": "item",
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "placeholder": "tag1, tag2",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to modify any extra attributes of a container. Input_json will be merged with other inputs. In the event of a conflict, input_json will take precedence.",
+                                        "inputType": "item",
+                                        "label": "input_json",
+                                        "name": "input_json",
+                                        "placeholder": "{\"custom_fields\": {\"field_name\": \"field_value\"}}",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "container_update",
+                                "name": "container_update"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "container_update": {
+                                "container_input": "container:id",
+                                "description": null,
+                                "input_json": "{\"custom_fields\": {\"field1\": 1, \"field2\": 2}}",
+                                "label": null,
+                                "name": "Updated Container",
+                                "owner": null,
+                                "sensitivity": null,
+                                "severity": null,
+                                "status": null,
+                                "tags": null
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "utility",
+                    "x": 980,
+                    "y": 380
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "code_2",
+                        "id": "9",
+                        "inputParameters": [],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    phantom.debug(f'container:  {json.dumps(container, indent=4)}')\n\n",
+                    "x": 980,
+                    "y": 260
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.6",
+        "version": "5.3.1.84890"
+    },
+    "create_time": "2025-03-13T18:17:08.617049+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}

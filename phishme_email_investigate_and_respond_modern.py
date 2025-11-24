@@ -289,11 +289,12 @@ def block_domain_1(action=None, success=None, container=None, results=None, hand
 
     # build parameters list for 'block_domain_1' call
     for filtered_artifact_0_item_domain_filter in filtered_artifact_0_data_domain_filter:
-        parameters.append({
-            "domain": filtered_artifact_0_item_domain_filter[0],
-            "disable_safeguards": "",
-            "context": {'artifact_id': filtered_artifact_0_item_domain_filter[1]},
-        })
+        if filtered_artifact_0_item_domain_filter[0] is not None:
+            parameters.append({
+                "domain": filtered_artifact_0_item_domain_filter[0],
+                "disable_safeguards": "",
+                "context": {'artifact_id': filtered_artifact_0_item_domain_filter[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -305,7 +306,7 @@ def block_domain_1(action=None, success=None, container=None, results=None, hand
     ## Custom Code End
     ################################################################################
 
-    phantom.act("block domain", parameters=parameters, name="block_domain_1", assets=["opendns_umbrella"], callback=format_3)
+    phantom.act("block domain", parameters=parameters, name="block_domain_1", assets=["cu-fake"], callback=format_3)
 
     return
 

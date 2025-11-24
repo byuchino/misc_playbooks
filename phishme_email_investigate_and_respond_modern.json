@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "886cf3017ce4c5d32581b803ddc15290b5582afd",
+            "hash": "7686abf59ea374ac004be9b650b4835bd63369a0",
             "nodes": {
                 "0": {
                     "data": {
@@ -498,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -500.00000000000034
+                    "y": -500.00000000000045
                 },
                 "1": {
                     "data": {
@@ -664,11 +664,11 @@
                             "join": [],
                             "note": "block domain in opendns"
                         },
-                        "connector": "",
+                        "connector": "Cisco Umbrella",
                         "connectorConfigs": [
-                            "opendns_umbrella"
+                            "cu-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "96f3e021-5396-42d0-97f4-4fab683e9adb",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "block_domain_1",
@@ -686,7 +686,12 @@
                             "disable_safeguards": "",
                             "domain": "filtered-data:domain_filter:condition_1:artifact:*.cef.destinationDnsDomain"
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "domain"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1793,11 +1798,7 @@
                     "errors": {},
                     "id": "38",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 640,
                     "y": 1500
                 },
@@ -2055,7 +2056,11 @@
                     "errors": {},
                     "id": "44",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1600,
                     "y": 1500
                 },
@@ -2311,7 +2316,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T03:05:05.629272+00:00",
+    "create_time": "2025-11-24T03:09:17.613165+00:00",
     "draft_mode": false,
     "labels": [
         "events"

@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "7686abf59ea374ac004be9b650b4835bd63369a0",
+            "hash": "4db9cfec2346de4e2f1f6fb60c6d281d6fc6bd3e",
             "nodes": {
                 "0": {
                     "data": {
@@ -498,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -500.00000000000045
+                    "y": -500.00000000000057
                 },
                 "1": {
                     "data": {
@@ -741,11 +741,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "Carbon Black Response",
                         "connectorConfigs": [
-                            "carbonblack"
+                            "cbr-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "56e81e6b-8022-4613-82ba-a779debac564",
                         "connectorVersion": "v1",
                         "functionId": 3,
                         "functionName": "block_hash_3",
@@ -763,7 +763,12 @@
                             "comment": "",
                             "hash": "file_reputation_2:action_result.parameter.hash"
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "hash"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -2003,11 +2008,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "Carbon Black Response",
                         "connectorConfigs": [
-                            "carbonblack"
+                            "cbr-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "56e81e6b-8022-4613-82ba-a779debac564",
                         "connectorVersion": "v1",
                         "functionId": 3,
                         "functionName": "hunt_file_3",
@@ -2024,9 +2029,19 @@
                         "parameters": {
                             "hash": "file_reputation_2:action_result.parameter.hash",
                             "range": "",
-                            "type": ""
+                            "type": "binary"
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "hash"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "binary",
+                                "field": "type"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -2056,11 +2071,7 @@
                     "errors": {},
                     "id": "44",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1600,
                     "y": 1500
                 },
@@ -2084,11 +2095,7 @@
                     "errors": {},
                     "id": "45",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1280,
                     "y": 1500
                 },
@@ -2316,7 +2323,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T03:09:17.613165+00:00",
+    "create_time": "2025-11-24T03:14:43.313182+00:00",
     "draft_mode": false,
     "labels": [
         "events"

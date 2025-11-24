@@ -348,11 +348,12 @@ def block_hash_3(action=None, success=None, container=None, results=None, handle
 
     # build parameters list for 'block_hash_3' call
     for file_reputation_2_result_item in file_reputation_2_result_data:
-        parameters.append({
-            "hash": file_reputation_2_result_item[0],
-            "comment": "",
-            "context": {'artifact_id': file_reputation_2_result_item[1]},
-        })
+        if file_reputation_2_result_item[0] is not None:
+            parameters.append({
+                "hash": file_reputation_2_result_item[0],
+                "comment": "",
+                "context": {'artifact_id': file_reputation_2_result_item[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -364,7 +365,7 @@ def block_hash_3(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.act("block hash", parameters=parameters, name="block_hash_3", assets=["carbonblack"], callback=format_5)
+    phantom.act("block hash", parameters=parameters, name="block_hash_3", assets=["cbr-fake"], callback=format_5)
 
     return
 
@@ -1206,12 +1207,13 @@ def hunt_file_3(action=None, success=None, container=None, results=None, handle=
 
     # build parameters list for 'hunt_file_3' call
     for file_reputation_2_result_item in file_reputation_2_result_data:
-        parameters.append({
-            "hash": file_reputation_2_result_item[0],
-            "type": "",
-            "range": "",
-            "context": {'artifact_id': file_reputation_2_result_item[1]},
-        })
+        if file_reputation_2_result_item[0] is not None:
+            parameters.append({
+                "hash": file_reputation_2_result_item[0],
+                "type": "binary",
+                "range": "",
+                "context": {'artifact_id': file_reputation_2_result_item[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -1223,7 +1225,7 @@ def hunt_file_3(action=None, success=None, container=None, results=None, handle=
     ## Custom Code End
     ################################################################################
 
-    phantom.act("hunt file", parameters=parameters, name="hunt_file_3", assets=["carbonblack"], callback=format_6)
+    phantom.act("hunt file", parameters=parameters, name="hunt_file_3", assets=["cbr-fake"], callback=format_6)
 
     return
 

@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "b61016dd510e42c95c2fb3d73d27225f43fdb7c4",
+            "hash": "07e55489795c981981a84375d69edb966272bec3",
             "nodes": {
                 "0": {
                     "data": {
@@ -1653,11 +1653,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 3,
                         "functionName": "update_ticket_3",
@@ -1677,7 +1677,12 @@
                             "table": "create_ticket_5:action_result.parameter.table",
                             "vault_id": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1722,11 +1727,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 4,
                         "functionName": "update_ticket_4",
@@ -1746,7 +1751,12 @@
                             "table": "create_ticket_5:action_result.parameter.table",
                             "vault_id": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1851,11 +1861,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 5,
                         "functionName": "update_ticket_5",
@@ -1875,7 +1885,12 @@
                             "table": "create_ticket_5:action_result.parameter.table",
                             "vault_id": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1892,11 +1907,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 6,
                         "functionName": "update_ticket_6",
@@ -1916,7 +1931,12 @@
                             "table": "create_ticket_5:action_result.parameter.table",
                             "vault_id": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1933,11 +1953,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 7,
                         "functionName": "update_ticket_7",
@@ -1957,7 +1977,12 @@
                             "table": "create_ticket_5:action_result.parameter.table",
                             "vault_id": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -2287,7 +2312,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T02:42:37.035089+00:00",
+    "create_time": "2025-11-24T02:48:28.981652+00:00",
     "draft_mode": false,
     "labels": [
         "events"

@@ -931,13 +931,14 @@ def update_ticket_3(action=None, success=None, container=None, results=None, han
 
     # build parameters list for 'update_ticket_3' call
     for create_ticket_5_result_item in create_ticket_5_result_data:
-        parameters.append({
-            "id": create_ticket_5_result_item[0],
-            "table": create_ticket_5_result_item[1],
-            "fields": format_2,
-            "vault_id": "",
-            "context": {'artifact_id': create_ticket_5_result_item[2]},
-        })
+        if create_ticket_5_result_item[0] is not None:
+            parameters.append({
+                "id": create_ticket_5_result_item[0],
+                "table": create_ticket_5_result_item[1],
+                "fields": format_2,
+                "vault_id": "",
+                "context": {'artifact_id': create_ticket_5_result_item[2]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -949,7 +950,7 @@ def update_ticket_3(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("update ticket", parameters=parameters, name="update_ticket_3", assets=["servicenow"], callback=join_set_severity_3)
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_3", assets=["snow-fake"], callback=join_set_severity_3)
 
     return
 
@@ -996,13 +997,14 @@ def update_ticket_4(action=None, success=None, container=None, results=None, han
 
     # build parameters list for 'update_ticket_4' call
     for create_ticket_5_result_item in create_ticket_5_result_data:
-        parameters.append({
-            "id": create_ticket_5_result_item[0],
-            "table": create_ticket_5_result_item[1],
-            "fields": format_3,
-            "vault_id": "",
-            "context": {'artifact_id': create_ticket_5_result_item[2]},
-        })
+        if create_ticket_5_result_item[0] is not None:
+            parameters.append({
+                "id": create_ticket_5_result_item[0],
+                "table": create_ticket_5_result_item[1],
+                "fields": format_3,
+                "vault_id": "",
+                "context": {'artifact_id': create_ticket_5_result_item[2]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -1014,7 +1016,7 @@ def update_ticket_4(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("update ticket", parameters=parameters, name="update_ticket_4", assets=["servicenow"], callback=join_set_severity_3)
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_4", assets=["snow-fake"], callback=join_set_severity_3)
 
     return
 
@@ -1090,13 +1092,14 @@ def update_ticket_5(action=None, success=None, container=None, results=None, han
 
     # build parameters list for 'update_ticket_5' call
     for create_ticket_5_result_item in create_ticket_5_result_data:
-        parameters.append({
-            "id": create_ticket_5_result_item[0],
-            "table": create_ticket_5_result_item[1],
-            "fields": format_4,
-            "vault_id": "",
-            "context": {'artifact_id': create_ticket_5_result_item[2]},
-        })
+        if create_ticket_5_result_item[0] is not None:
+            parameters.append({
+                "id": create_ticket_5_result_item[0],
+                "table": create_ticket_5_result_item[1],
+                "fields": format_4,
+                "vault_id": "",
+                "context": {'artifact_id': create_ticket_5_result_item[2]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -1108,7 +1111,7 @@ def update_ticket_5(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("update ticket", parameters=parameters, name="update_ticket_5", assets=["servicenow"], callback=join_set_severity_3)
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_5", assets=["snow-fake"], callback=join_set_severity_3)
 
     return
 
@@ -1126,13 +1129,14 @@ def update_ticket_6(action=None, success=None, container=None, results=None, han
 
     # build parameters list for 'update_ticket_6' call
     for create_ticket_5_result_item in create_ticket_5_result_data:
-        parameters.append({
-            "id": create_ticket_5_result_item[0],
-            "table": create_ticket_5_result_item[1],
-            "fields": format_5,
-            "vault_id": "",
-            "context": {'artifact_id': create_ticket_5_result_item[2]},
-        })
+        if create_ticket_5_result_item[0] is not None:
+            parameters.append({
+                "id": create_ticket_5_result_item[0],
+                "table": create_ticket_5_result_item[1],
+                "fields": format_5,
+                "vault_id": "",
+                "context": {'artifact_id': create_ticket_5_result_item[2]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -1144,7 +1148,7 @@ def update_ticket_6(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("update ticket", parameters=parameters, name="update_ticket_6", assets=["servicenow"], callback=join_set_severity_3)
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_6", assets=["snow-fake"], callback=join_set_severity_3)
 
     return
 
@@ -1162,13 +1166,14 @@ def update_ticket_7(action=None, success=None, container=None, results=None, han
 
     # build parameters list for 'update_ticket_7' call
     for create_ticket_5_result_item in create_ticket_5_result_data:
-        parameters.append({
-            "id": create_ticket_5_result_item[0],
-            "table": create_ticket_5_result_item[1],
-            "fields": format_6,
-            "vault_id": "",
-            "context": {'artifact_id': create_ticket_5_result_item[2]},
-        })
+        if create_ticket_5_result_item[0] is not None:
+            parameters.append({
+                "id": create_ticket_5_result_item[0],
+                "table": create_ticket_5_result_item[1],
+                "fields": format_6,
+                "vault_id": "",
+                "context": {'artifact_id': create_ticket_5_result_item[2]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -1180,7 +1185,7 @@ def update_ticket_7(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("update ticket", parameters=parameters, name="update_ticket_7", assets=["servicenow"], callback=join_set_severity_3)
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_7", assets=["snow-fake"], callback=join_set_severity_3)
 
     return
 

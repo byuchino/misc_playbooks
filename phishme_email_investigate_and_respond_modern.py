@@ -898,10 +898,11 @@ def get_report_2(action=None, success=None, container=None, results=None, handle
 
     # build parameters list for 'get_report_2' call
     for container_artifact_item in container_artifact_data:
-        parameters.append({
-            "threat_id": container_artifact_item[0],
-            "context": {'artifact_id': container_artifact_item[1]},
-        })
+        if container_artifact_item[0] is not None:
+            parameters.append({
+                "threat_id": container_artifact_item[0],
+                "context": {'artifact_id': container_artifact_item[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -913,7 +914,7 @@ def get_report_2(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.act("get report", parameters=parameters, name="get_report_2", assets=["phishme"], callback=format_1)
+    phantom.act("get report", parameters=parameters, name="get_report_2", assets=["cofense-fake"], callback=format_1)
 
     return
 

@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "07e55489795c981981a84375d69edb966272bec3",
+            "hash": "54df8e890fbec48b14030535e15a82270a4b51b5",
             "nodes": {
                 "0": {
                     "data": {
@@ -498,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -500.0000000000001
+                    "y": -500.0000000000002
                 },
                 "1": {
                     "data": {
@@ -1598,11 +1598,7 @@
                     "errors": {},
                     "id": "33",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 980,
                     "y": 640
                 },
@@ -1615,11 +1611,11 @@
                             "join": [],
                             "note": "Pull the threat report from PhishMe for inclusion in the ticket."
                         },
-                        "connector": "",
+                        "connector": "Cofense Intelligence",
                         "connectorConfigs": [
-                            "phishme"
+                            "cofense-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "60f9a9a6-6f54-4dd3-986f-9e1beb169adf",
                         "connectorVersion": "v1",
                         "functionId": 2,
                         "functionName": "get_report_2",
@@ -1636,7 +1632,12 @@
                         "parameters": {
                             "threat_id": "artifact:*.cef.phishmeThreatId"
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "numeric",
+                                "field": "threat_id"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -2052,11 +2053,7 @@
                     "errors": {},
                     "id": "44",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1600,
                     "y": 1500
                 },
@@ -2312,7 +2309,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T02:48:28.981652+00:00",
+    "create_time": "2025-11-24T02:56:01.538425+00:00",
     "draft_mode": false,
     "labels": [
         "events"

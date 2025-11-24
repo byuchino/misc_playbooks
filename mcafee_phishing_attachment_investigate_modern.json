@@ -1,0 +1,656 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Use Cases",
+    "coa": {
+        "data": {
+            "description": "Originally written as an example playbook for BlackHat 2017, this playbook investigates a potential phishing email with a suspicious attachment. Execution starts when a suspicious email with an attachment is forwarded to an inbox which Phantom is polling. McAfee Advanced Threat Defense is used to do static and dynamic analysis on any attachments to the email. If the attachment(s) appear malicious, any IP addresses identified during the ATD detonation are used to do geolocation and IP address reputation, further enriching the data in the original container. The ATD detonation also records the hashes of files that are created or touched. McAfee Active Response is used to search within the enterprise for those hashes, and if there are any matches they are shared on the OpenDXL message fabric.",
+            "edges": [
+                {
+                    "id": "port_14_to_port_8",
+                    "sourceNode": "14",
+                    "sourcePort": "14_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_14_to_port_4",
+                    "sourceNode": "14",
+                    "sourcePort": "14_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_3",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_14",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "14",
+                    "targetPort": "14_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_6",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "id": "port_6_to_port_13",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_7",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
+                },
+                {
+                    "id": "port_7_to_port_5",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_5_to_port_12",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "id": "port_13_to_port_1",
+                    "sourceNode": "13",
+                    "sourcePort": "13_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_12_to_port_1",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_10_to_port_1",
+                    "sourceNode": "10",
+                    "sourcePort": "10_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_11_to_port_1",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_5_to_port_9",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                },
+                {
+                    "id": "port_9_to_port_10",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "10",
+                    "targetPort": "10_in"
+                },
+                {
+                    "id": "port_9_to_port_11",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                }
+            ],
+            "hash": "c12778e0fcff9c8964fcef181b279ee37ba7f3b2",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 160,
+                    "y": 100
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 160,
+                    "y": 1620
+                },
+                "10": {
+                    "data": {
+                        "action": "create ticket",
+                        "actionType": "generic",
+                        "advanced": {
+                            "description": "Create a new ticket with a summary of the information needed to start remediation.",
+                            "join": [],
+                            "note": "Create a new ticket with a summary of the information needed to start remediation."
+                        },
+                        "connector": "ServiceNow",
+                        "connectorConfigs": [
+                            "servicenow"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 2,
+                        "functionName": "create_ticket_2",
+                        "id": "10",
+                        "parameters": {
+                            "description": "format_ticket_and_email:formatted_data",
+                            "fields": "",
+                            "short_description": "phishing attachment present on endpoints",
+                            "table": "incident",
+                            "vault_id": "artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "10",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 1380
+                },
+                "11": {
+                    "data": {
+                        "action": "send email",
+                        "actionType": "generic",
+                        "advanced": {
+                            "customName": "send email to analyst",
+                            "customNameId": 0,
+                            "description": "Email an analyst with a summary of the information needed to start remediation.",
+                            "join": [],
+                            "note": "Email an analyst with a summary of the information needed to start remediation."
+                        },
+                        "connector": "SMTP",
+                        "connectorConfigs": [
+                            "smtp"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 3,
+                        "functionName": "send_email_to_analyst",
+                        "id": "11",
+                        "parameters": {
+                            "attachments": "artifact:*.cef.vaultId",
+                            "bcc": "",
+                            "body": "format_ticket_and_email:formatted_data",
+                            "cc": "",
+                            "from": "phantom@mcafee-ebc.com",
+                            "headers": "",
+                            "subject": "phishing attachment present on endpoints",
+                            "to": "analyst@mcafee-ebc.com"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 960,
+                    "y": 1380
+                },
+                "12": {
+                    "data": {
+                        "action": "post hash",
+                        "actionType": "contain",
+                        "advanced": {
+                            "customName": "opendxl push hash",
+                            "customNameId": 0,
+                            "description": "Push out the identified hashes for use by McAfee Threat Intelligence Exchange (TIE). From there the hash can be blocked depending on the reputation threshold configured in TIE policy and whether or not files with that hash are signed by a trusted source.",
+                            "join": [],
+                            "note": "Push out the identified hashes for use by McAfee Threat Intelligence Exchange (TIE). From there the hash can be blocked depending on the reputation threshold configured in TIE policy and whether or not files with that hash are signed by a trusted source."
+                        },
+                        "connector": "McAfee OpenDXL",
+                        "connectorConfigs": [
+                            "mcafee_opendxl"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "opendxl_push_hash",
+                        "id": "12",
+                        "parameters": {
+                            "dxl_rep": "KNOWN_MALICIOUS",
+                            "tie_md5": "filtered-data:filter_2:condition_1:mar_lookup_hash:action_result.data.*.items.*.output.Files|md5"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 400,
+                    "y": 1140
+                },
+                "13": {
+                    "data": {
+                        "action": "ip reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "description": "Enrich the container with the reputation of any IP addresses found in the detonation to inform any further analysis.",
+                            "join": [],
+                            "note": "Enrich the container with the reputation of any IP addresses found in the detonation to inform any further analysis."
+                        },
+                        "connector": "PassiveTotal",
+                        "connectorConfigs": [
+                            "passivetotal"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "ip_reputation_1",
+                        "id": "13",
+                        "parameters": {
+                            "from": "",
+                            "ip": "opendxl_push_ip:action_result.parameter.dxl_ip",
+                            "to": ""
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 120,
+                    "y": 1140
+                },
+                "14": {
+                    "data": {
+                        "action": "detonate file",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "atd detonate file",
+                            "customNameId": 0,
+                            "description": "Submit the file(s) to ATD for both static and dynamic analysis. The combined analysis will provide a security verdict about how dangerous the file looks as well as one or more hashes from different stages of its execution and one or more IP addresses hard-coded within it (static analysis) or detected during execution (dynamic analysis).",
+                            "join": [],
+                            "note": "Submit the file(s) to ATD for both static and dynamic analysis. The combined analysis will provide a security verdict about how dangerous the file looks as well as one or more hashes from different stages of its execution and one or more IP addresses hard-coded within it (static analysis) or detected during execution (dynamic analysis)."
+                        },
+                        "connector": "McAfee Advanced Threat Defense (ATD)",
+                        "connectorConfigs": [
+                            "mcafee_atd"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "atd_detonate_file",
+                        "id": "14",
+                        "parameters": {
+                            "vault_id": "artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "14",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 120,
+                    "y": 380
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "description": "Only proceed with the playbook if the ingested email has an artifact with a vaultId, which will be present if the email has one or more file attachments.",
+                            "join": [],
+                            "note": "Only proceed with the playbook if the ingested email has an artifact with a vaultId, which will be present if the email has one or more file attachments."
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "artifact:*.cef.vaultId",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "decision_1",
+                        "id": "2",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 120,
+                    "y": 240
+                },
+                "3": {
+                    "data": {
+                        "action": "geolocate ip",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "geolocate ip",
+                            "customNameId": 0,
+                            "description": "Enrich the container with the geolocation of any IP addresses found in the detonation to inform any further analysis.",
+                            "join": [],
+                            "note": "Enrich the container with the geolocation of any IP addresses found in the detonation to inform any further analysis."
+                        },
+                        "connector": "",
+                        "connectorConfigs": [
+                            "maxmind"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "geolocate_ip",
+                        "id": "3",
+                        "parameters": {
+                            "ip": "filtered-data:filter_1:condition_1:detonate_file_1:action_result.data.*.Summary.Ips.*.Ipv4"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 400,
+                    "y": 760
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "description": "Only proceed with investigation if the final severity verdict returned by ATD is greater than or equal to 3, indicating the file is probably malicious.",
+                            "join": [],
+                            "note": "Only proceed with investigation if the final severity verdict returned by ATD is greater than or equal to 3, indicating the file is probably malicious."
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": ">=",
+                                        "param": "atd_detonate_file:action_result.data.*.Summary.Verdict.Severity",
+                                        "value": "3"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_1",
+                        "id": "4",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 120,
+                    "y": 620
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "description": "Investigate further for any hashes that were identified in the MAR lookup.",
+                            "join": [],
+                            "note": "Investigate further for any hashes that were identified in the MAR lookup."
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": ">",
+                                        "param": "mar_lookup_hash:action_result.data.*.items.*.count",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_2",
+                        "id": "5",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 1000
+                },
+                "6": {
+                    "data": {
+                        "action": "post ip",
+                        "actionType": "contain",
+                        "advanced": {
+                            "customName": "opendxl push ip",
+                            "customNameId": 0,
+                            "description": "Push any IP addresses identified in the ATD detonation to the OpenDXL message fabric. These can be received by any number of other tools listening on OpenDXL.",
+                            "join": [],
+                            "note": "Push any IP addresses identified in the ATD detonation to the OpenDXL message fabric. These can be received by any number of other tools listening on OpenDXL."
+                        },
+                        "connector": "McAfee OpenDXL",
+                        "connectorConfigs": [
+                            "mcafee_opendxl"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "opendxl_push_ip",
+                        "id": "6",
+                        "parameters": {
+                            "dxl_ip": "filtered-data:filter_1:condition_1:Detonate_file_in_ATD:action_result.data.*.Summary.Ips.*.Ipv4"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 120,
+                    "y": 760
+                },
+                "7": {
+                    "data": {
+                        "action": "lookup hash",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "mar lookup hash",
+                            "customNameId": 0,
+                            "description": "Use OpenDXL to connect to McAfee Active Response, querying for the existence of the detected hashes on any endpoints within the enterprise. MAR searches for the hash on disk, in netflow, or in processes and registry keys.",
+                            "join": [],
+                            "note": "Use OpenDXL to connect to McAfee Active Response (MAR), querying for the existence of the detected hashes on any endpoints within the enterprise. MAR searches for the hash on disk, in netflow, or in processes and registry keys."
+                        },
+                        "connector": "McAfee OpenDXL",
+                        "connectorConfigs": [
+                            "mcafee_opendxl"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "mar_lookup_hash",
+                        "id": "7",
+                        "parameters": {
+                            "mar_md5": "filtered-data:filter_1:condition_1:atd_detonate_file:action_result.data.*.Summary.Files.*.Md5"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 760
+                },
+                "8": {
+                    "data": {
+                        "action": "send email",
+                        "actionType": "generic",
+                        "advanced": {
+                            "customName": "send email to admin",
+                            "customNameId": 0,
+                            "description": "Always send the high-level ATD verdict description to the admin to keep them in the loop.",
+                            "join": [],
+                            "note": "Always send the high-level ATD verdict description to the admin to keep them in the loop."
+                        },
+                        "connector": "",
+                        "connectorConfigs": [
+                            "smtp"
+                        ],
+                        "connectorId": "",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "send_email_to_admin",
+                        "id": "8",
+                        "parameters": {
+                            "attachments": "",
+                            "body": "Detonate_file_in_ATD:action_result.data.*.Summary.Verdict.Description",
+                            "from": "phantom@mcafee-ebc.com",
+                            "subject": "Detonate_file_in_ATD:action_result.summary.verdict",
+                            "to": "admin@mcafee-ebc.com"
+                        },
+                        "requiredParameters": [],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 960,
+                    "y": 760
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "customName": "format ticket and email",
+                            "customNameId": 0,
+                            "description": "Summarize the key findings from the investigation to populate a new ticket and an email to an analyst.",
+                            "join": [],
+                            "note": "Summarize the key findings from the investigation to populate a new ticket and an email to an analyst."
+                        },
+                        "functionId": 2,
+                        "functionName": "format_ticket_and_email",
+                        "id": "9",
+                        "parameters": [
+                            "artifact:*.cef.fromEmail",
+                            "container:source_data_identifier",
+                            "atd_detonate_file:action_result.data.*.Summary.Verdict.Severity",
+                            "filtered-data:filter_2:condition_1:mar_lookup_hash:action_result.data.*.items.*.output.HostInfo|hostname"
+                        ],
+                        "template": "Phantom received a potential phishing email from {0} with source_id {1}\n\nSince the email contained an attachment, Phantom used McAfee ATD to detonate the file. The detonation returned a severity verdict of {2}\n\nPhantom proceeded to use McAfee Active Response to hunt internally for endpoints associated with any of the hashes identified during ATD detonation. The following internal hostnames were identified:\n\n{3}\n\nPlease continue to investigate these endpoints as soon as possible.",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 1140
+                }
+            },
+            "notes": "This playbook uses the following Apps:\n - McAfee Advanced Threat Defense (ATD) (detonate file) [asset name = atd]\n - McAfee OpenDXL (post ip, lookup hash, and post hash) [asset name = opendxl]\n - Maxmind (geolocate ip) [asset name = maxmind]\n - SMTP (send email) [asset name = smtp]\n - Passivetotal (ip reputation) [asset name = passivetotal]\n - Servicenow (create ticket) [asset name = servicenow]\n\nThis playbook is meant to be set as Active, and the IMAP app should be automatically polling the desired email inbox and labelling the resulting containers as \"Email\".\n\nThe destination email addresses used are:\n - admin@mcafee-ebc.com for the results of all ATD file detonations\n - analyst@mcafee-ebc.com for a summary of all successful MAR lookups\n\nThe receiving end of both OpenDXL push actions is not defined here and will depend on your environment. In \"opendxl push hash\" the reputation \"KNOWN_MALICIOUS\" is sent along with the hash, which will have a different behavior depending on your TIE reputation threshold.\n\nThe Format block before \"create ticket\" and \"send email to analyst\" can be modified to share more or less information.",
+            "origin": {
+                "playbook_id": 392,
+                "playbook_name": "mcafee_phishing_attachment_investigate",
+                "playbook_repo_id": 1,
+                "playbook_repo_name": "community"
+            }
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_trigger": "artifact_created",
+        "playbook_type": "automation",
+        "python_version": "3.13",
+        "schema": "5.0.10",
+        "version": "4.10.0.40961"
+    },
+    "create_time": "2025-11-24T07:34:53.719331+00:00",
+    "draft_mode": false,
+    "labels": [
+        "events"
+    ],
+    "tags": []
+}

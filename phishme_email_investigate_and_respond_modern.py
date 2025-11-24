@@ -254,12 +254,13 @@ def block_url_1(action=None, success=None, container=None, results=None, handle=
 
     # build parameters list for 'block_url_1' call
     for filtered_artifact_0_item_url_filter in filtered_artifact_0_data_url_filter:
-        parameters.append({
-            "url": filtered_artifact_0_item_url_filter[0],
-            "vsys": "",
-            "sec_policy": "",
-            "context": {'artifact_id': filtered_artifact_0_item_url_filter[1]},
-        })
+        if filtered_artifact_0_item_url_filter[0] is not None:
+            parameters.append({
+                "url": filtered_artifact_0_item_url_filter[0],
+                "vsys": "",
+                "sec_policy": "",
+                "context": {'artifact_id': filtered_artifact_0_item_url_filter[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -271,7 +272,7 @@ def block_url_1(action=None, success=None, container=None, results=None, handle=
     ## Custom Code End
     ################################################################################
 
-    phantom.act("block url", parameters=parameters, name="block_url_1", assets=["pan"], callback=format_4)
+    phantom.act("block url", parameters=parameters, name="block_url_1", assets=["pafw-fake"], callback=format_4)
 
     return
 
@@ -600,12 +601,13 @@ def block_ip_1(action=None, success=None, container=None, results=None, handle=N
 
     # build parameters list for 'block_ip_1' call
     for filtered_artifact_0_item_ip_filter in filtered_artifact_0_data_ip_filter:
-        parameters.append({
-            "ip": filtered_artifact_0_item_ip_filter[0],
-            "vsys": "",
-            "is_source_address": "",
-            "context": {'artifact_id': filtered_artifact_0_item_ip_filter[1]},
-        })
+        if filtered_artifact_0_item_ip_filter[0] is not None:
+            parameters.append({
+                "ip": filtered_artifact_0_item_ip_filter[0],
+                "vsys": "",
+                "is_source_address": "",
+                "context": {'artifact_id': filtered_artifact_0_item_ip_filter[1]},
+            })
 
     ################################################################################
     ## Custom Code Start
@@ -617,7 +619,7 @@ def block_ip_1(action=None, success=None, container=None, results=None, handle=N
     ## Custom Code End
     ################################################################################
 
-    phantom.act("block ip", parameters=parameters, name="block_ip_1", assets=["pan"], callback=format_2)
+    phantom.act("block ip", parameters=parameters, name="block_ip_1", assets=["pafw-fake"], callback=format_2)
 
     return
 

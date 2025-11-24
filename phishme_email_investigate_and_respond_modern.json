@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "54df8e890fbec48b14030535e15a82270a4b51b5",
+            "hash": "886cf3017ce4c5d32581b803ddc15290b5582afd",
             "nodes": {
                 "0": {
                     "data": {
@@ -498,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -500.0000000000002
+                    "y": -500.00000000000034
                 },
                 "1": {
                     "data": {
@@ -618,11 +618,11 @@
                             "join": [],
                             "note": "block url on firewall"
                         },
-                        "connector": "",
+                        "connector": "Palo Alto Networks Firewall",
                         "connectorConfigs": [
-                            "pan"
+                            "pafw-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "e025e4ba-65be-438d-835f-95fe5da6b6d0",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "block_url_1",
@@ -641,7 +641,12 @@
                             "url": "filtered-data:url_filter:condition_1:artifact:*.cef.requestURL",
                             "vsys": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "url"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1162,11 +1167,11 @@
                             "join": [],
                             "note": "block IP on firewall"
                         },
-                        "connector": "",
+                        "connector": "Palo Alto Networks Firewall",
                         "connectorConfigs": [
-                            "pan"
+                            "pafw-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "e025e4ba-65be-438d-835f-95fe5da6b6d0",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "block_ip_1",
@@ -1185,7 +1190,12 @@
                             "is_source_address": "",
                             "vsys": ""
                         },
-                        "requiredParameters": [],
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "ip"
+                            }
+                        ],
                         "type": "action"
                     },
                     "errors": {},
@@ -1713,11 +1723,7 @@
                     "errors": {},
                     "id": "36",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 320,
                     "y": 1500
                 },
@@ -1815,11 +1821,7 @@
                     "errors": {},
                     "id": "39",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 960,
                     "y": 1500
                 },
@@ -2309,7 +2311,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T02:56:01.538425+00:00",
+    "create_time": "2025-11-24T03:05:05.629272+00:00",
     "draft_mode": false,
     "labels": [
         "events"

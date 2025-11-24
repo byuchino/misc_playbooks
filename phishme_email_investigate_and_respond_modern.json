@@ -482,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "2497374796a84b6556c534c1ac7a4b8d049f7e1d",
+            "hash": "b61016dd510e42c95c2fb3d73d27225f43fdb7c4",
             "nodes": {
                 "0": {
                     "data": {
@@ -498,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -500
+                    "y": -500.0000000000001
                 },
                 "1": {
                     "data": {
@@ -1567,11 +1567,11 @@
                         "advanced": {
                             "join": []
                         },
-                        "connector": "",
+                        "connector": "ServiceNow",
                         "connectorConfigs": [
-                            "servicenow"
+                            "snow-fake"
                         ],
-                        "connectorId": "",
+                        "connectorId": "a590c3bc-ca41-4a0e-b063-8066ca868794",
                         "connectorVersion": "v1",
                         "functionId": 5,
                         "functionName": "create_ticket_5",
@@ -1683,11 +1683,7 @@
                     "errors": {},
                     "id": "35",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 320,
                     "y": 1740
                 },
@@ -1756,11 +1752,7 @@
                     "errors": {},
                     "id": "37",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 640,
                     "y": 1740
                 },
@@ -1889,11 +1881,7 @@
                     "errors": {},
                     "id": "40",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 960,
                     "y": 1740
                 },
@@ -1934,11 +1922,7 @@
                     "errors": {},
                     "id": "41",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1280,
                     "y": 1740
                 },
@@ -1979,11 +1963,7 @@
                     "errors": {},
                     "id": "42",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1600,
                     "y": 1740
                 },
@@ -2307,7 +2287,7 @@
         "schema": "5.0.22",
         "version": "7.0.0.198"
     },
-    "create_time": "2025-11-24T02:40:34.542584+00:00",
+    "create_time": "2025-11-24T02:42:37.035089+00:00",
     "draft_mode": false,
     "labels": [
         "events"

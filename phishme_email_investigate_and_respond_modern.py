@@ -869,7 +869,7 @@ def create_ticket_5(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("create ticket", parameters=parameters, name="create_ticket_5", assets=["servicenow"], callback=create_ticket_5_callback)
+    phantom.act("create ticket", parameters=parameters, name="create_ticket_5", assets=["snow-fake"], callback=create_ticket_5_callback)
 
     return
 

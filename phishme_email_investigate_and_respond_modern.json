@@ -9,6 +9,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_5",
                             "index": 0
                         }
                     ],
@@ -21,6 +22,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_8",
                             "index": 0
                         }
                     ],
@@ -33,6 +35,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_10",
                             "index": 0
                         }
                     ],
@@ -52,6 +55,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_6",
                             "index": 0
                         }
                     ],
@@ -99,6 +103,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_11",
                             "index": 0
                         }
                     ],
@@ -118,6 +123,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_11",
                             "index": 0
                         }
                     ],
@@ -144,6 +150,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_9",
                             "index": 0
                         }
                     ],
@@ -156,6 +163,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_9",
                             "index": 0
                         }
                     ],
@@ -168,6 +176,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_9",
                             "index": 0
                         }
                     ],
@@ -187,6 +196,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_16",
                             "index": 0
                         }
                     ],
@@ -220,6 +230,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_15",
                             "index": 0
                         }
                     ],
@@ -232,6 +243,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_13",
                             "index": 0
                         }
                     ],
@@ -244,6 +256,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_14",
                             "index": 0
                         }
                     ],
@@ -270,6 +283,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_12",
                             "index": 0
                         }
                     ],
@@ -282,6 +296,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_7",
                             "index": 1
                         }
                     ],
@@ -294,6 +309,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_3",
                             "index": 0
                         }
                     ],
@@ -306,6 +322,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_7",
                             "index": 1
                         }
                     ],
@@ -318,6 +335,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_1",
                             "index": 0
                         }
                     ],
@@ -330,6 +348,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_7",
                             "index": 1
                         }
                     ],
@@ -342,6 +361,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_2",
                             "index": 0
                         }
                     ],
@@ -354,6 +374,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_7",
                             "index": 1
                         }
                     ],
@@ -366,6 +387,7 @@
                 {
                     "conditions": [
                         {
+                            "conditionKey": "condition_key_4",
                             "index": 0
                         }
                     ],
@@ -460,7 +482,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "1fcfe9dd86ece3c76a4fe4a348d25125005772e4",
+            "hash": "2497374796a84b6556c534c1ac7a4b8d049f7e1d",
             "nodes": {
                 "0": {
                     "data": {
@@ -476,7 +498,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": -260
+                    "y": -500
                 },
                 "1": {
                     "data": {
@@ -491,8 +513,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 360,
-                    "y": 2460
+                    "x": 340,
+                    "y": 2260
                 },
                 "10": {
                     "data": {
@@ -502,6 +524,15 @@
                         "functionId": 8,
                         "functionName": "set_severity_8",
                         "id": "10",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_severity": {
@@ -541,8 +572,8 @@
                     "tab": "apis",
                     "type": "utility",
                     "warnings": {},
-                    "x": 1960,
-                    "y": 500
+                    "x": 1980,
+                    "y": 640
                 },
                 "11": {
                     "data": {
@@ -563,6 +594,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_8",
                                 "logic": "and"
                             }
                         ],
@@ -575,8 +607,8 @@
                     "id": "11",
                     "type": "filter",
                     "warnings": {},
-                    "x": 640,
-                    "y": 1120
+                    "x": 700,
+                    "y": 1100
                 },
                 "12": {
                     "data": {
@@ -595,6 +627,15 @@
                         "functionId": 1,
                         "functionName": "block_url_1",
                         "id": "12",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "sec_policy": "",
                             "url": "filtered-data:url_filter:condition_1:artifact:*.cef.requestURL",
@@ -627,6 +668,15 @@
                         "functionId": 1,
                         "functionName": "block_domain_1",
                         "id": "13",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "disable_safeguards": "",
                             "domain": "filtered-data:domain_filter:condition_1:artifact:*.cef.destinationDnsDomain"
@@ -658,6 +708,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_9",
                                 "logic": "and"
                             }
                         ],
@@ -670,8 +721,8 @@
                     "id": "14",
                     "type": "filter",
                     "warnings": {},
-                    "x": 640,
-                    "y": 740
+                    "x": 700,
+                    "y": 840
                 },
                 "15": {
                     "data": {
@@ -689,6 +740,15 @@
                         "functionId": 3,
                         "functionName": "block_hash_3",
                         "id": "15",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "comment": "",
                             "hash": "file_reputation_2:action_result.parameter.hash"
@@ -722,6 +782,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_10",
                                 "logic": "and"
                             }
                         ],
@@ -734,8 +795,8 @@
                     "id": "16",
                     "type": "filter",
                     "warnings": {},
-                    "x": 960,
-                    "y": 1120
+                    "x": 1020,
+                    "y": 1100
                 },
                 "17": {
                     "data": {
@@ -746,13 +807,22 @@
                         },
                         "connector": "VirusTotal",
                         "connectorConfigs": [
-                            "virustotal"
+                            "vt"
                         ],
                         "connectorId": "",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "ip_reputation_1",
                         "id": "17",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "ip": "filtered-data:filter_10:condition_1:artifact:*.cef.destinationAddress"
                         },
@@ -768,8 +838,8 @@
                     "id": "17",
                     "type": "action",
                     "warnings": {},
-                    "x": 1680,
-                    "y": 120
+                    "x": 1700,
+                    "y": 260
                 },
                 "18": {
                     "data": {
@@ -780,13 +850,22 @@
                         },
                         "connector": "VirusTotal",
                         "connectorConfigs": [
-                            "virustotal"
+                            "vt"
                         ],
                         "connectorId": "",
                         "connectorVersion": "v1",
                         "functionId": 2,
                         "functionName": "file_reputation_2",
                         "id": "18",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "hash": "filtered-data:filter_9:condition_1:artifact:*.cef.fileHashMd5"
                         },
@@ -803,7 +882,7 @@
                     "type": "action",
                     "warnings": {},
                     "x": 1440,
-                    "y": 880
+                    "y": 1000
                 },
                 "19": {
                     "data": {
@@ -814,13 +893,22 @@
                         },
                         "connector": "VirusTotal",
                         "connectorConfigs": [
-                            "virustotal"
+                            "vt"
                         ],
                         "connectorId": "",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "domain_reputation_1",
                         "id": "19",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "domain": "filtered-data:filter_11:condition_1:artifact:*.cef.destinationDnsDomain"
                         },
@@ -836,8 +924,8 @@
                     "id": "19",
                     "type": "action",
                     "warnings": {},
-                    "x": 1960,
-                    "y": 120
+                    "x": 1980,
+                    "y": 260
                 },
                 "2": {
                     "data": {
@@ -847,6 +935,15 @@
                         "functionId": 6,
                         "functionName": "set_severity_6",
                         "id": "2",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_severity": {
@@ -886,8 +983,8 @@
                     "tab": "apis",
                     "type": "utility",
                     "warnings": {},
-                    "x": 2520,
-                    "y": 500
+                    "x": 2540,
+                    "y": 640
                 },
                 "20": {
                     "data": {
@@ -898,13 +995,22 @@
                         },
                         "connector": "VirusTotal",
                         "connectorConfigs": [
-                            "virustotal"
+                            "vt"
                         ],
                         "connectorId": "",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "url_reputation_1",
                         "id": "20",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "url": "filtered-data:filter_12:condition_1:artifact:*.cef.requestURL"
                         },
@@ -920,8 +1026,8 @@
                     "id": "20",
                     "type": "action",
                     "warnings": {},
-                    "x": 2240,
-                    "y": 120
+                    "x": 2260,
+                    "y": 260
                 },
                 "21": {
                     "data": {
@@ -931,6 +1037,15 @@
                         "functionId": 9,
                         "functionName": "set_severity_9",
                         "id": "21",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_severity": {
@@ -970,8 +1085,8 @@
                     "tab": "apis",
                     "type": "utility",
                     "warnings": {},
-                    "x": 1680,
-                    "y": 500
+                    "x": 1700,
+                    "y": 640
                 },
                 "22": {
                     "data": {
@@ -990,6 +1105,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_11",
                                 "logic": "and"
                             }
                         ],
@@ -1002,8 +1118,8 @@
                     "id": "22",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1440,
-                    "y": 1120
+                    "x": 1500,
+                    "y": 1100
                 },
                 "23": {
                     "data": {
@@ -1022,6 +1138,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_12",
                                 "logic": "and"
                             }
                         ],
@@ -1034,8 +1151,8 @@
                     "id": "23",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1120,
-                    "y": 740
+                    "x": 1500,
+                    "y": 840
                 },
                 "24": {
                     "data": {
@@ -1054,6 +1171,15 @@
                         "functionId": 1,
                         "functionName": "block_ip_1",
                         "id": "24",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "ip": "filtered-data:ip_filter:condition_1:artifact:*.cef.destinationAddress",
                             "is_source_address": "",
@@ -1085,6 +1211,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_13",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -1099,8 +1226,8 @@
                     "id": "25",
                     "type": "decision",
                     "warnings": {},
-                    "x": 1960,
-                    "y": 360
+                    "x": 2060,
+                    "y": 380
                 },
                 "26": {
                     "data": {
@@ -1118,6 +1245,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_14",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -1132,8 +1260,8 @@
                     "id": "26",
                     "type": "decision",
                     "warnings": {},
-                    "x": 1680,
-                    "y": 360
+                    "x": 1780,
+                    "y": 380
                 },
                 "27": {
                     "data": {
@@ -1151,6 +1279,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_15",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -1165,26 +1294,35 @@
                     "id": "27",
                     "type": "decision",
                     "warnings": {},
-                    "x": 2240,
-                    "y": 360
+                    "x": 2340,
+                    "y": 380
                 },
                 "28": {
                     "data": {
                         "action": "file reputation",
                         "actionType": "investigate",
                         "advanced": {
-                            "delayTime": 0.0,
+                            "delayTime": 0,
                             "join": []
                         },
                         "connector": "VirusTotal",
                         "connectorConfigs": [
-                            "virustotal"
+                            "vt"
                         ],
                         "connectorId": "",
                         "connectorVersion": "v1",
                         "functionId": 1,
                         "functionName": "file_reputation_1",
                         "id": "28",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "hash": "filtered-data:filter_13:condition_1:artifact:*.cef.fileHash"
                         },
@@ -1200,8 +1338,8 @@
                     "id": "28",
                     "type": "action",
                     "warnings": {},
-                    "x": 2520,
-                    "y": 120
+                    "x": 2540,
+                    "y": 260
                 },
                 "29": {
                     "data": {
@@ -1219,6 +1357,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_16",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -1233,8 +1372,8 @@
                     "id": "29",
                     "type": "decision",
                     "warnings": {},
-                    "x": 2520,
-                    "y": 360
+                    "x": 2620,
+                    "y": 380
                 },
                 "3": {
                     "data": {
@@ -1252,6 +1391,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_1",
                                 "logic": "and"
                             }
                         ],
@@ -1264,23 +1404,32 @@
                     "id": "3",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1960,
-                    "y": -40
+                    "x": 2040,
+                    "y": 100
                 },
                 "30": {
                     "data": {
                         "advanced": {
                             "join": [],
                             "notRequiredJoins": [
-                                "update_ticket_5",
-                                "update_ticket_4",
-                                "update_ticket_3",
-                                "update_ticket_6"
+                                "40",
+                                "37",
+                                "35",
+                                "41"
                             ]
                         },
                         "functionId": 3,
                         "functionName": "set_severity_3",
                         "id": "30",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_severity": {
@@ -1331,6 +1480,15 @@
                         "functionId": 4,
                         "functionName": "set_status_4",
                         "id": "31",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_status": {
@@ -1377,7 +1535,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 320,
-                    "y": 2220
+                    "y": 2120
                 },
                 "32": {
                     "data": {
@@ -1399,7 +1557,7 @@
                     "id": "32",
                     "type": "format",
                     "warnings": {},
-                    "x": 960,
+                    "x": 980,
                     "y": 260
                 },
                 "33": {
@@ -1418,6 +1576,15 @@
                         "functionId": 5,
                         "functionName": "create_ticket_5",
                         "id": "33",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "description": "format_1:formatted_data",
                             "fields": "",
@@ -1431,16 +1598,20 @@
                     "errors": {},
                     "id": "33",
                     "type": "action",
-                    "warnings": {},
-                    "x": 960,
-                    "y": 500
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 980,
+                    "y": 640
                 },
                 "34": {
                     "data": {
                         "action": "get report",
                         "actionType": "investigate",
                         "advanced": {
-                            "delayTime": 0.0,
+                            "delayTime": 0,
                             "join": [],
                             "note": "Pull the threat report from PhishMe for inclusion in the ticket."
                         },
@@ -1453,6 +1624,15 @@
                         "functionId": 2,
                         "functionName": "get_report_2",
                         "id": "34",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "threat_id": "artifact:*.cef.phishmeThreatId"
                         },
@@ -1463,8 +1643,8 @@
                     "id": "34",
                     "type": "action",
                     "warnings": {},
-                    "x": 960,
-                    "y": 20
+                    "x": 980,
+                    "y": 40
                 },
                 "35": {
                     "data": {
@@ -1482,6 +1662,15 @@
                         "functionId": 3,
                         "functionName": "update_ticket_3",
                         "id": "35",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "fields": "format_2:formatted_data",
                             "id": "create_ticket_5:action_result.summary.created_ticket_id",
@@ -1494,7 +1683,11 @@
                     "errors": {},
                     "id": "35",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 320,
                     "y": 1740
                 },
@@ -1518,7 +1711,11 @@
                     "errors": {},
                     "id": "36",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 320,
                     "y": 1500
                 },
@@ -1538,6 +1735,15 @@
                         "functionId": 4,
                         "functionName": "update_ticket_4",
                         "id": "37",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "fields": "format_3:formatted_data",
                             "id": "create_ticket_5:action_result.summary.created_ticket_id",
@@ -1550,7 +1756,11 @@
                     "errors": {},
                     "id": "37",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 640,
                     "y": 1740
                 },
@@ -1574,7 +1784,11 @@
                     "errors": {},
                     "id": "38",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 640,
                     "y": 1500
                 },
@@ -1598,7 +1812,11 @@
                     "errors": {},
                     "id": "39",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 960,
                     "y": 1500
                 },
@@ -1618,6 +1836,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_2",
                                 "logic": "and"
                             }
                         ],
@@ -1630,8 +1849,8 @@
                     "id": "4",
                     "type": "filter",
                     "warnings": {},
-                    "x": 2240,
-                    "y": -40
+                    "x": 2320,
+                    "y": 100
                 },
                 "40": {
                     "data": {
@@ -1649,6 +1868,15 @@
                         "functionId": 5,
                         "functionName": "update_ticket_5",
                         "id": "40",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "fields": "format_4:formatted_data",
                             "id": "create_ticket_5:action_result.summary.created_ticket_id",
@@ -1661,7 +1889,11 @@
                     "errors": {},
                     "id": "40",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 960,
                     "y": 1740
                 },
@@ -1681,6 +1913,15 @@
                         "functionId": 6,
                         "functionName": "update_ticket_6",
                         "id": "41",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "fields": "format_5:formatted_data",
                             "id": "create_ticket_5:action_result.summary.created_ticket_id",
@@ -1693,7 +1934,11 @@
                     "errors": {},
                     "id": "41",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1280,
                     "y": 1740
                 },
@@ -1713,6 +1958,15 @@
                         "functionId": 7,
                         "functionName": "update_ticket_7",
                         "id": "42",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "fields": "format_6:formatted_data",
                             "id": "create_ticket_5:action_result.summary.created_ticket_id",
@@ -1725,7 +1979,11 @@
                     "errors": {},
                     "id": "42",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1600,
                     "y": 1740
                 },
@@ -1745,6 +2003,15 @@
                         "functionId": 3,
                         "functionName": "hunt_file_3",
                         "id": "43",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "hash": "file_reputation_2:action_result.parameter.hash",
                             "range": "",
@@ -1780,7 +2047,11 @@
                     "errors": {},
                     "id": "44",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1600,
                     "y": 1500
                 },
@@ -1804,7 +2075,11 @@
                     "errors": {},
                     "id": "45",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1280,
                     "y": 1500
                 },
@@ -1824,6 +2099,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_3",
                                 "logic": "and"
                             }
                         ],
@@ -1836,8 +2112,8 @@
                     "id": "5",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1680,
-                    "y": -40
+                    "x": 1760,
+                    "y": 100
                 },
                 "6": {
                     "data": {
@@ -1855,6 +2131,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_4",
                                 "logic": "and"
                             }
                         ],
@@ -1867,8 +2144,8 @@
                     "id": "6",
                     "type": "filter",
                     "warnings": {},
-                    "x": 2520,
-                    "y": -40
+                    "x": 2600,
+                    "y": 100
                 },
                 "7": {
                     "data": {
@@ -1889,6 +2166,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_5",
                                 "logic": "and"
                             }
                         ],
@@ -1901,8 +2179,8 @@
                     "id": "7",
                     "type": "filter",
                     "warnings": {},
-                    "x": 320,
-                    "y": 1120
+                    "x": 380,
+                    "y": 1100
                 },
                 "8": {
                     "data": {
@@ -1920,6 +2198,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "conditionKey": "condition_key_6",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -1934,6 +2213,7 @@
                                     }
                                 ],
                                 "conditionIndex": 1,
+                                "conditionKey": "condition_key_7",
                                 "display": "Else",
                                 "logic": "and",
                                 "type": "else"
@@ -1948,8 +2228,8 @@
                     "id": "8",
                     "type": "decision",
                     "warnings": {},
-                    "x": 960,
-                    "y": -120
+                    "x": 1060,
+                    "y": -340
                 },
                 "9": {
                     "data": {
@@ -1959,6 +2239,15 @@
                         "functionId": 7,
                         "functionName": "set_severity_7",
                         "id": "9",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "type": "utility",
                         "utilities": {
                             "set_severity": {
@@ -1998,8 +2287,8 @@
                     "tab": "apis",
                     "type": "utility",
                     "warnings": {},
-                    "x": 2240,
-                    "y": 500
+                    "x": 2260,
+                    "y": 640
                 }
             },
             "notes": "The following Apps are used in this playbook: \n - PhishMe\n - Service Now\n - OpenDNS\n - VirusTotal\n - Carbon Black\n - Palo Alto Networks Firewall",
@@ -2015,10 +2304,10 @@
         "playbook_trigger": "artifact_created",
         "playbook_type": "automation",
         "python_version": "3.13",
-        "schema": "5.0.10",
-        "version": "4.10.0.40961"
+        "schema": "5.0.22",
+        "version": "7.0.0.198"
     },
-    "create_time": "2025-11-23T23:25:46.543629+00:00",
+    "create_time": "2025-11-24T02:40:34.542584+00:00",
     "draft_mode": false,
     "labels": [
         "events"

@@ -2,600 +2,833 @@
 This playbook proactively blocks high impact indicators ingested from PhishMe. It was constructed for the Phantom Tech Session held on 04/07/2017 with PhishMe.
 """
 
+
 import phantom.rules as phantom
 import json
 from datetime import datetime, timedelta
+
+
 @phantom.playbook_block()
 def on_start(container):
     phantom.debug('on_start() called')
-    
+
     # call 'decision_2' block
     decision_2(container=container)
 
     return
 
 @phantom.playbook_block()
-def set_severity_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_6() called')
+def set_severity_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_severity_6() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_severity(container=container, severity="high")
 
     return
 
-@phantom.playbook_block()
-def filter_11(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_11() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_11(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_11() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.cef.destinationDnsDomain", "!=", ""],
+            ["artifact:*.cef.destinationDnsDomain", "!=", ""]
         ],
-        name="filter_11:condition_1")
+        conditions_dps=[
+            ["artifact:*.cef.destinationDnsDomain", "!=", ""]
+        ],
+        name="filter_11:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        domain_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        domain_reputation_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def filter_12(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_12() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_12(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_12() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.cef.requestURL", "!=", ""],
+            ["artifact:*.cef.requestURL", "!=", ""]
         ],
-        name="filter_12:condition_1")
+        conditions_dps=[
+            ["artifact:*.cef.requestURL", "!=", ""]
+        ],
+        name="filter_12:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        url_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        url_reputation_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def filter_10(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_10() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_10(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_10() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.cef.destinationAddress", "!=", ""],
+            ["artifact:*.cef.destinationAddress", "!=", ""]
         ],
-        name="filter_10:condition_1")
+        conditions_dps=[
+            ["artifact:*.cef.destinationAddress", "!=", ""]
+        ],
+        name="filter_10:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def filter_13(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_13() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_13(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_13() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.cef.fileHashMd5", "!=", ""],
+            ["artifact:*.cef.fileHashMd5", "!=", ""]
         ],
-        name="filter_13:condition_1")
+        conditions_dps=[
+            ["artifact:*.cef.fileHashMd5", "!=", ""]
+        ],
+        name="filter_13:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        file_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        file_reputation_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def ip_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('ip_filter() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def ip_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("ip_filter() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationAddress", "!=", ""],
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationAddress", "!=", ""]
         ],
-        name="ip_filter:condition_1")
+        conditions_dps=[
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationAddress", "!=", ""]
+        ],
+        name="ip_filter:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        block_ip_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        block_ip_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
+
 @phantom.playbook_block()
-def decision_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('decision_2() called')
+def decision_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_2() called")
 
     # check for 'if' condition 1
-    matched = phantom.decision(
+    found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["artifact:*.severity", "==", "high"],
-        ])
+            ["artifact:*.severity", "==", "high"]
+        ],
+        conditions_dps=[
+            ["artifact:*.severity", "==", "high"]
+        ],
+        name="decision_2:condition_1",
+        delimiter=None)
 
     # call connected blocks if condition 1 matched
-    if matched:
-        get_report_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    if found_match_1:
+        get_report_2(action=action, success=success, container=container, results=results, handle=handle)
         return
 
-    # call connected blocks for 'else' condition 2
-    filter_10(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    filter_11(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    filter_12(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    filter_13(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    # check for 'else' condition 2
+    filter_10(action=action, success=success, container=container, results=results, handle=handle)
+    filter_11(action=action, success=success, container=container, results=results, handle=handle)
+    filter_12(action=action, success=success, container=container, results=results, handle=handle)
+    filter_13(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
+
 @phantom.playbook_block()
-def set_severity_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_7() called')
+def set_severity_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_severity_7() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_severity(container=container, severity="high")
 
     return
 
+
 @phantom.playbook_block()
-def set_severity_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_8() called')
+def set_severity_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_severity_8() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_severity(container=container, severity="high")
 
     return
 
-@phantom.playbook_block()
-def domain_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('domain_filter() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def domain_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("domain_filter() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationDnsDomain", "!=", ""],
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationDnsDomain", "!=", ""]
         ],
-        name="domain_filter:condition_1")
+        conditions_dps=[
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.destinationDnsDomain", "!=", ""]
+        ],
+        name="domain_filter:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        block_domain_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        block_domain_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
+
 @phantom.playbook_block()
-def block_url_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('block_url_1() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'block_url_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:url_filter:condition_1:artifact:*.cef.requestURL', 'filtered-data:url_filter:condition_1:artifact:*.id'])
+def block_url_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("block_url_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_url_filter = phantom.collect2(container=container, datapath=["filtered-data:url_filter:condition_1:artifact:*.cef.requestURL","filtered-data:url_filter:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'block_url_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
-            parameters.append({
-                'ph': "",
-                'url': filtered_artifacts_item_1[0],
-                'vsys': "",
-                'sec_policy': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
-            })
+    for filtered_artifact_0_item_url_filter in filtered_artifact_0_data_url_filter:
+        parameters.append({
+            "url": filtered_artifact_0_item_url_filter[0],
+            "vsys": "",
+            "sec_policy": "",
+            "context": {'artifact_id': filtered_artifact_0_item_url_filter[1]},
+        })
 
-    phantom.act(action="block url", parameters=parameters, assets=['pan'], callback=format_4, name="block_url_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("block url", parameters=parameters, name="block_url_1", assets=["pan"], callback=format_4)
 
     return
 
+
 @phantom.playbook_block()
-def block_domain_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('block_domain_1() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'block_domain_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:domain_filter:condition_1:artifact:*.cef.destinationDnsDomain', 'filtered-data:domain_filter:condition_1:artifact:*.id'])
+def block_domain_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("block_domain_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_domain_filter = phantom.collect2(container=container, datapath=["filtered-data:domain_filter:condition_1:artifact:*.cef.destinationDnsDomain","filtered-data:domain_filter:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'block_domain_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
-            parameters.append({
-                'domain': filtered_artifacts_item_1[0],
-                'disable_safeguards': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
-            })
+    for filtered_artifact_0_item_domain_filter in filtered_artifact_0_data_domain_filter:
+        parameters.append({
+            "domain": filtered_artifact_0_item_domain_filter[0],
+            "disable_safeguards": "",
+            "context": {'artifact_id': filtered_artifact_0_item_domain_filter[1]},
+        })
 
-    phantom.act(action="block domain", parameters=parameters, assets=['opendns_umbrella'], callback=format_3, name="block_domain_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("block domain", parameters=parameters, name="block_domain_1", assets=["opendns_umbrella"], callback=format_3)
 
     return
 
-@phantom.playbook_block()
-def filter_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_8() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_8() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["artifact:*.severity", "==", "high"],
+            ["artifact:*.severity", "==", "high"]
         ],
-        name="filter_8:condition_1")
+        conditions_dps=[
+            ["artifact:*.severity", "==", "high"]
+        ],
+        name="filter_8:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        ip_filter(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
-        domain_filter(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
-        url_filter(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        ip_filter(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        domain_filter(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        url_filter(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
+
 @phantom.playbook_block()
-def block_hash_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('block_hash_3() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'block_hash_3' call
-    results_data_1 = phantom.collect2(container=container, datapath=['file_reputation_2:action_result.parameter.hash', 'file_reputation_2:action_result.parameter.context.artifact_id'], action_results=results)
+def block_hash_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("block_hash_3() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    file_reputation_2_result_data = phantom.collect2(container=container, datapath=["file_reputation_2:action_result.parameter.hash","file_reputation_2:action_result.parameter.context.artifact_id"], action_results=results)
 
     parameters = []
-    
+
     # build parameters list for 'block_hash_3' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'hash': results_item_1[0],
-                'comment': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[1]},
-            })
+    for file_reputation_2_result_item in file_reputation_2_result_data:
+        parameters.append({
+            "hash": file_reputation_2_result_item[0],
+            "comment": "",
+            "context": {'artifact_id': file_reputation_2_result_item[1]},
+        })
 
-    phantom.act(action="block hash", parameters=parameters, assets=['carbonblack'], callback=format_5, name="block_hash_3")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("block hash", parameters=parameters, name="block_hash_3", assets=["carbonblack"], callback=format_5)
 
     return
 
-@phantom.playbook_block()
-def url_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('url_filter() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def url_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("url_filter() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["filtered-data:filter_8:condition_1:artifact:*.cef.requestURL", "!=", ""],
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.requestURL", "!=", ""]
         ],
-        name="url_filter:condition_1")
+        conditions_dps=[
+            ["filtered-data:filter_8:condition_1:artifact:*.cef.requestURL", "!=", ""]
+        ],
+        name="url_filter:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        block_url_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        block_url_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def ip_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('ip_reputation_1() called')
 
-    # collect data for 'ip_reputation_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_10:condition_1:artifact:*.cef.destinationAddress', 'filtered-data:filter_10:condition_1:artifact:*.id'])
+@phantom.playbook_block()
+def ip_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("ip_reputation_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_filter_10 = phantom.collect2(container=container, datapath=["filtered-data:filter_10:condition_1:artifact:*.cef.destinationAddress","filtered-data:filter_10:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'ip_reputation_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
+    for filtered_artifact_0_item_filter_10 in filtered_artifact_0_data_filter_10:
+        if filtered_artifact_0_item_filter_10[0] is not None:
             parameters.append({
-                'ip': filtered_artifacts_item_1[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                "ip": filtered_artifact_0_item_filter_10[0],
+                "context": {'artifact_id': filtered_artifact_0_item_filter_10[1]},
             })
 
-    phantom.act(action="ip reputation", parameters=parameters, assets=['virustotal'], callback=decision_9, name="ip_reputation_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("ip reputation", parameters=parameters, name="ip_reputation_1", assets=["vt"], callback=decision_9)
 
     return
 
+
 @phantom.playbook_block()
-def file_reputation_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('file_reputation_2() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'file_reputation_2' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_9:condition_1:artifact:*.cef.fileHashMd5', 'filtered-data:filter_9:condition_1:artifact:*.id'])
+def file_reputation_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("file_reputation_2() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_filter_9 = phantom.collect2(container=container, datapath=["filtered-data:filter_9:condition_1:artifact:*.cef.fileHashMd5","filtered-data:filter_9:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'file_reputation_2' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
+    for filtered_artifact_0_item_filter_9 in filtered_artifact_0_data_filter_9:
+        if filtered_artifact_0_item_filter_9[0] is not None:
             parameters.append({
-                'hash': filtered_artifacts_item_1[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                "hash": filtered_artifact_0_item_filter_9[0],
+                "context": {'artifact_id': filtered_artifact_0_item_filter_9[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=filter_5, name="file_reputation_2")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("file reputation", parameters=parameters, name="file_reputation_2", assets=["vt"], callback=filter_5)
 
     return
 
-@phantom.playbook_block()
-def domain_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('domain_reputation_1() called')
 
-    # collect data for 'domain_reputation_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_11:condition_1:artifact:*.cef.destinationDnsDomain', 'filtered-data:filter_11:condition_1:artifact:*.id'])
+@phantom.playbook_block()
+def domain_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("domain_reputation_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_filter_11 = phantom.collect2(container=container, datapath=["filtered-data:filter_11:condition_1:artifact:*.cef.destinationDnsDomain","filtered-data:filter_11:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'domain_reputation_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
+    for filtered_artifact_0_item_filter_11 in filtered_artifact_0_data_filter_11:
+        if filtered_artifact_0_item_filter_11[0] is not None:
             parameters.append({
-                'domain': filtered_artifacts_item_1[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                "domain": filtered_artifact_0_item_filter_11[0],
+                "context": {'artifact_id': filtered_artifact_0_item_filter_11[1]},
             })
 
-    phantom.act(action="domain reputation", parameters=parameters, assets=['virustotal'], callback=decision_8, name="domain_reputation_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("domain reputation", parameters=parameters, name="domain_reputation_1", assets=["vt"], callback=decision_8)
 
     return
 
-@phantom.playbook_block()
-def url_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('url_reputation_1() called')
 
-    # collect data for 'url_reputation_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_12:condition_1:artifact:*.cef.requestURL', 'filtered-data:filter_12:condition_1:artifact:*.id'])
+@phantom.playbook_block()
+def url_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("url_reputation_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_filter_12 = phantom.collect2(container=container, datapath=["filtered-data:filter_12:condition_1:artifact:*.cef.requestURL","filtered-data:filter_12:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'url_reputation_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
+    for filtered_artifact_0_item_filter_12 in filtered_artifact_0_data_filter_12:
+        if filtered_artifact_0_item_filter_12[0] is not None:
             parameters.append({
-                'url': filtered_artifacts_item_1[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                "url": filtered_artifact_0_item_filter_12[0],
+                "context": {'artifact_id': filtered_artifact_0_item_filter_12[1]},
             })
 
-    phantom.act(action="url reputation", parameters=parameters, assets=['virustotal'], callback=decision_7, name="url_reputation_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("url reputation", parameters=parameters, name="url_reputation_1", assets=["vt"], callback=decision_7)
 
     return
 
+
 @phantom.playbook_block()
-def set_severity_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_9() called')
+def set_severity_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_severity_9() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_severity(container=container, severity="high")
 
     return
 
-@phantom.playbook_block()
-def filter_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_5() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_5() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["file_reputation_2:summary.total_positives", ">=", 10],
+            ["file_reputation_2:summary.total_positives", ">=", 10]
         ],
-        name="filter_5:condition_1")
+        conditions_dps=[
+            ["file_reputation_2:summary.total_positives", ">=", 10]
+        ],
+        name="filter_5:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        block_hash_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
-        hunt_file_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        block_hash_3(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        hunt_file_3(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
-@phantom.playbook_block()
-def filter_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_9() called')
 
-    # collect filtered artifact ids for 'if' condition 1
+@phantom.playbook_block()
+def filter_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_9() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        action_results=results,
         conditions=[
-            ["artifact:*.cef.fileHashMd5", "!=", ""],
+            ["artifact:*.cef.fileHashMd5", "!=", ""]
         ],
-        name="filter_9:condition_1")
+        conditions_dps=[
+            ["artifact:*.cef.fileHashMd5", "!=", ""]
+        ],
+        name="filter_9:condition_1",
+        delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        file_reputation_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        file_reputation_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
+
 @phantom.playbook_block()
-def block_ip_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('block_ip_1() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'block_ip_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:ip_filter:condition_1:artifact:*.cef.destinationAddress', 'filtered-data:ip_filter:condition_1:artifact:*.id'])
+def block_ip_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("block_ip_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_ip_filter = phantom.collect2(container=container, datapath=["filtered-data:ip_filter:condition_1:artifact:*.cef.destinationAddress","filtered-data:ip_filter:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'block_ip_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
-            parameters.append({
-                'ip': filtered_artifacts_item_1[0],
-                'vsys': "",
-                'is_source_address': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
-            })
+    for filtered_artifact_0_item_ip_filter in filtered_artifact_0_data_ip_filter:
+        parameters.append({
+            "ip": filtered_artifact_0_item_ip_filter[0],
+            "vsys": "",
+            "is_source_address": "",
+            "context": {'artifact_id': filtered_artifact_0_item_ip_filter[1]},
+        })
 
-    phantom.act(action="block ip", parameters=parameters, assets=['pan'], callback=format_2, name="block_ip_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("block ip", parameters=parameters, name="block_ip_1", assets=["pan"], callback=format_2)
 
     return
 
+
 @phantom.playbook_block()
-def decision_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('decision_8() called')
+def decision_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_8() called")
 
     # check for 'if' condition 1
-    matched = phantom.decision(
+    found_match_1 = phantom.decision(
         container=container,
-        action_results=results,
         conditions=[
-            ["domain_reputation_1:summary.total_positives", ">=", 10],
-        ])
+            ["domain_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        conditions_dps=[
+            ["domain_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        name="decision_8:condition_1",
+        delimiter=None)
 
     # call connected blocks if condition 1 matched
-    if matched:
-        set_severity_8(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    if found_match_1:
+        set_severity_8(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
 
+
 @phantom.playbook_block()
-def decision_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('decision_9() called')
+def decision_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_9() called")
 
     # check for 'if' condition 1
-    matched = phantom.decision(
+    found_match_1 = phantom.decision(
         container=container,
-        action_results=results,
         conditions=[
-            ["ip_reputation_1:summary.total_positives", ">=", 10],
-        ])
+            ["ip_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        conditions_dps=[
+            ["ip_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        name="decision_9:condition_1",
+        delimiter=None)
 
     # call connected blocks if condition 1 matched
-    if matched:
-        set_severity_9(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    if found_match_1:
+        set_severity_9(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
 
+
 @phantom.playbook_block()
-def decision_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('decision_7() called')
+def decision_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_7() called")
 
     # check for 'if' condition 1
-    matched = phantom.decision(
+    found_match_1 = phantom.decision(
         container=container,
-        action_results=results,
         conditions=[
-            ["url_reputation_1:summary.total_positives", ">=", 10],
-        ])
+            ["url_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        conditions_dps=[
+            ["url_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        name="decision_7:condition_1",
+        delimiter=None)
 
     # call connected blocks if condition 1 matched
-    if matched:
-        set_severity_7(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    if found_match_1:
+        set_severity_7(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
 
-@phantom.playbook_block()
-def file_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('file_reputation_1() called')
 
-    # collect data for 'file_reputation_1' call
-    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_13:condition_1:artifact:*.cef.fileHash', 'filtered-data:filter_13:condition_1:artifact:*.id'])
+@phantom.playbook_block()
+def file_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("file_reputation_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    filtered_artifact_0_data_filter_13 = phantom.collect2(container=container, datapath=["filtered-data:filter_13:condition_1:artifact:*.cef.fileHash","filtered-data:filter_13:condition_1:artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'file_reputation_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
+    for filtered_artifact_0_item_filter_13 in filtered_artifact_0_data_filter_13:
+        if filtered_artifact_0_item_filter_13[0] is not None:
             parameters.append({
-                'hash': filtered_artifacts_item_1[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                "hash": filtered_artifact_0_item_filter_13[0],
+                "context": {'artifact_id': filtered_artifact_0_item_filter_13[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=decision_6, name="file_reputation_1")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("file reputation", parameters=parameters, name="file_reputation_1", assets=["vt"], callback=decision_6)
 
     return
 
+
 @phantom.playbook_block()
-def decision_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('decision_6() called')
+def decision_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_6() called")
 
     # check for 'if' condition 1
-    matched = phantom.decision(
+    found_match_1 = phantom.decision(
         container=container,
-        action_results=results,
         conditions=[
-            ["file_reputation_1:summary.total_positives", ">=", 10],
-        ])
+            ["file_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        conditions_dps=[
+            ["file_reputation_1:summary.total_positives", ">=", 10]
+        ],
+        name="decision_6:condition_1",
+        delimiter=None)
 
     # call connected blocks if condition 1 matched
-    if matched:
-        set_severity_6(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    if found_match_1:
+        set_severity_6(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
 
+
 @phantom.playbook_block()
-def set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_3() called')
+def join_set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_set_severity_3() called")
+
+    # if the joined function has already been called, do nothing
+    if phantom.get_run_data(key="join_set_severity_3_called"):
+        return
+
+    if phantom.completed(action_names=["update_ticket_7"]):
+        # save the state that the joined function has now been called
+        phantom.save_block_result(key="join_set_severity_3_called", value="set_severity_3")
+
+        # call connected block "set_severity_3"
+        set_severity_3(container=container, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_severity_3() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_severity(container=container, severity="high")
+
     set_status_4(container=container)
 
     return
 
-@phantom.playbook_block()
-def join_set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('join_set_severity_3() called')
-    
-    # if the joined function has already been called, do nothing
-    if phantom.get_run_data(key='join_set_severity_3_called'):
-        return
-
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(action_names=['update_ticket_7']):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_set_severity_3_called', value='set_severity_3')
-        
-        # call connected block "set_severity_3"
-        set_severity_3(container=container, handle=handle)
-    
-    return
 
 @phantom.playbook_block()
-def set_status_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_status_4() called')
+def set_status_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_status_4() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.set_status(container=container, status="closed")
 
     return
 
+
 @phantom.playbook_block()
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_1() called')
-    
+def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_1() called")
+
     template = """{0}"""
 
     # parameter list for template variable replacement
     parameters = [
-        "get_report_2:action_result",
+        "get_report_2:action_result"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_1")
 
@@ -603,105 +836,145 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
-def create_ticket_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('create_ticket_5() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'create_ticket_5' call
-    results_data_1 = phantom.collect2(container=container, datapath=['get_report_2:action_result.parameter.threat_id', 'get_report_2:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_1')
+def create_ticket_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("create_ticket_5() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    get_report_2_result_data = phantom.collect2(container=container, datapath=["get_report_2:action_result.parameter.threat_id","get_report_2:action_result.parameter.context.artifact_id"], action_results=results)
+    format_1 = phantom.get_format_data(name="format_1")
 
     parameters = []
-    
+
     # build parameters list for 'create_ticket_5' call
-    for results_item_1 in results_data_1:
+    for get_report_2_result_item in get_report_2_result_data:
         parameters.append({
-            'table': "incident",
-            'fields': "",
-            'vault_id': "",
-            'description': formatted_data_1,
-            'short_description': results_item_1[0],
-            # context (artifact id) is added to associate results with the artifact
-            'context': {'artifact_id': results_item_1[1]},
+            "table": "incident",
+            "fields": "",
+            "vault_id": "",
+            "description": format_1,
+            "short_description": get_report_2_result_item[0],
+            "context": {'artifact_id': get_report_2_result_item[1]},
         })
 
-    phantom.act(action="create ticket", parameters=parameters, assets=['servicenow'], callback=create_ticket_5_callback, name="create_ticket_5")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("create ticket", parameters=parameters, name="create_ticket_5", assets=["servicenow"], callback=create_ticket_5_callback)
 
     return
 
+
 @phantom.playbook_block()
-def create_ticket_5_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('create_ticket_5_callback() called')
+def create_ticket_5_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("create_ticket_5_callback() called")
+
     
-    filter_8(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    filter_9(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    filter_8(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=filtered_artifacts, filtered_results=filtered_results)
+    filter_9(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=filtered_artifacts, filtered_results=filtered_results)
+
 
     return
 
-@phantom.playbook_block()
-def get_report_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('get_report_2() called')
 
-    # collect data for 'get_report_2' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.phishmeThreatId', 'artifact:*.id'])
+@phantom.playbook_block()
+def get_report_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("get_report_2() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.phishmeThreatId","artifact:*.id"])
 
     parameters = []
-    
+
     # build parameters list for 'get_report_2' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'threat_id': container_item[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
+    for container_artifact_item in container_artifact_data:
+        parameters.append({
+            "threat_id": container_artifact_item[0],
+            "context": {'artifact_id': container_artifact_item[1]},
+        })
 
-    phantom.act(action="get report", parameters=parameters, assets=['phishme'], callback=format_1, name="get_report_2")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("get report", parameters=parameters, name="get_report_2", assets=["phishme"], callback=format_1)
 
     return
 
+
 @phantom.playbook_block()
-def update_ticket_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_ticket_3() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'update_ticket_3' call
-    results_data_1 = phantom.collect2(container=container, datapath=['create_ticket_5:action_result.summary.created_ticket_id', 'create_ticket_5:action_result.parameter.table', 'create_ticket_5:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_2')
+def update_ticket_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("update_ticket_3() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    create_ticket_5_result_data = phantom.collect2(container=container, datapath=["create_ticket_5:action_result.summary.created_ticket_id","create_ticket_5:action_result.parameter.table","create_ticket_5:action_result.parameter.context.artifact_id"], action_results=results)
+    format_2 = phantom.get_format_data(name="format_2")
 
     parameters = []
-    
-    # build parameters list for 'update_ticket_3' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'id': results_item_1[0],
-                'table': results_item_1[1],
-                'fields': formatted_data_1,
-                'vault_id': "",
-                'is_sys_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[2]},
-            })
 
-    phantom.act(action="update ticket", parameters=parameters, assets=['servicenow'], callback=join_set_severity_3, name="update_ticket_3")
+    # build parameters list for 'update_ticket_3' call
+    for create_ticket_5_result_item in create_ticket_5_result_data:
+        parameters.append({
+            "id": create_ticket_5_result_item[0],
+            "table": create_ticket_5_result_item[1],
+            "fields": format_2,
+            "vault_id": "",
+            "context": {'artifact_id': create_ticket_5_result_item[2]},
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_3", assets=["servicenow"], callback=join_set_severity_3)
 
     return
 
+
 @phantom.playbook_block()
-def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_2() called')
-    
+def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_2() called")
+
     template = """{{\"work_notes\": \"The following source IPs connected with dst: {0}\\n\\nsrc: {1}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "block_ip_1:action_result.parameter.ip",
-        "filtered-data:ip_filter:condition_1:artifact:*.cef.sourceAddress",
+        "filtered-data:ip_filter:condition_1:artifact:*.cef.sourceAddress"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_2")
 
@@ -709,46 +982,64 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
-def update_ticket_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_ticket_4() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'update_ticket_4' call
-    results_data_1 = phantom.collect2(container=container, datapath=['create_ticket_5:action_result.summary.created_ticket_id', 'create_ticket_5:action_result.parameter.table', 'create_ticket_5:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_3')
+def update_ticket_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("update_ticket_4() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    create_ticket_5_result_data = phantom.collect2(container=container, datapath=["create_ticket_5:action_result.summary.created_ticket_id","create_ticket_5:action_result.parameter.table","create_ticket_5:action_result.parameter.context.artifact_id"], action_results=results)
+    format_3 = phantom.get_format_data(name="format_3")
 
     parameters = []
-    
-    # build parameters list for 'update_ticket_4' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'id': results_item_1[0],
-                'table': results_item_1[1],
-                'fields': formatted_data_1,
-                'vault_id': "",
-                'is_sys_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[2]},
-            })
 
-    phantom.act(action="update ticket", parameters=parameters, assets=['servicenow'], callback=join_set_severity_3, name="update_ticket_4")
+    # build parameters list for 'update_ticket_4' call
+    for create_ticket_5_result_item in create_ticket_5_result_data:
+        parameters.append({
+            "id": create_ticket_5_result_item[0],
+            "table": create_ticket_5_result_item[1],
+            "fields": format_3,
+            "vault_id": "",
+            "context": {'artifact_id': create_ticket_5_result_item[2]},
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_4", assets=["servicenow"], callback=join_set_severity_3)
 
     return
 
+
 @phantom.playbook_block()
-def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_3() called')
-    
+def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_3() called")
+
     template = """{{\"work_notes\": \"The following source IPs:\\n{1}\\n\\nconnected with destination domain:\\n{0}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "block_domain_1:action_result.parameter.domain",
-        "filtered-data:domain_filter:condition_1:artifact:*.cef.sourceAddress",
+        "filtered-data:domain_filter:condition_1:artifact:*.cef.sourceAddress"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_3")
 
@@ -756,17 +1047,28 @@ def format_3(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
-def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_4() called')
-    
+def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_4() called")
+
     template = """{{\"work_notes\": \"The following source IPs:\\n{1}\\n\\nconnected with the URL:\\n{0}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "block_url_1:action_result.parameter.url",
-        "filtered-data:url_filter:condition_1:artifact:*.cef.sourceAddress",
+        "filtered-data:url_filter:condition_1:artifact:*.cef.sourceAddress"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
 
@@ -774,130 +1076,170 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
-def update_ticket_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_ticket_5() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'update_ticket_5' call
-    results_data_1 = phantom.collect2(container=container, datapath=['create_ticket_5:action_result.summary.created_ticket_id', 'create_ticket_5:action_result.parameter.table', 'create_ticket_5:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_4')
+def update_ticket_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("update_ticket_5() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    create_ticket_5_result_data = phantom.collect2(container=container, datapath=["create_ticket_5:action_result.summary.created_ticket_id","create_ticket_5:action_result.parameter.table","create_ticket_5:action_result.parameter.context.artifact_id"], action_results=results)
+    format_4 = phantom.get_format_data(name="format_4")
 
     parameters = []
-    
+
     # build parameters list for 'update_ticket_5' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'id': results_item_1[0],
-                'table': results_item_1[1],
-                'fields': formatted_data_1,
-                'vault_id': "",
-                'is_sys_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[2]},
-            })
+    for create_ticket_5_result_item in create_ticket_5_result_data:
+        parameters.append({
+            "id": create_ticket_5_result_item[0],
+            "table": create_ticket_5_result_item[1],
+            "fields": format_4,
+            "vault_id": "",
+            "context": {'artifact_id': create_ticket_5_result_item[2]},
+        })
 
-    phantom.act(action="update ticket", parameters=parameters, assets=['servicenow'], callback=join_set_severity_3, name="update_ticket_5")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_5", assets=["servicenow"], callback=join_set_severity_3)
 
     return
 
+
 @phantom.playbook_block()
-def update_ticket_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_ticket_6() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'update_ticket_6' call
-    results_data_1 = phantom.collect2(container=container, datapath=['create_ticket_5:action_result.summary.created_ticket_id', 'create_ticket_5:action_result.parameter.table', 'create_ticket_5:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_5')
+def update_ticket_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("update_ticket_6() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    create_ticket_5_result_data = phantom.collect2(container=container, datapath=["create_ticket_5:action_result.summary.created_ticket_id","create_ticket_5:action_result.parameter.table","create_ticket_5:action_result.parameter.context.artifact_id"], action_results=results)
+    format_5 = phantom.get_format_data(name="format_5")
 
     parameters = []
-    
+
     # build parameters list for 'update_ticket_6' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'id': results_item_1[0],
-                'table': results_item_1[1],
-                'fields': formatted_data_1,
-                'vault_id': "",
-                'is_sys_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[2]},
-            })
+    for create_ticket_5_result_item in create_ticket_5_result_data:
+        parameters.append({
+            "id": create_ticket_5_result_item[0],
+            "table": create_ticket_5_result_item[1],
+            "fields": format_5,
+            "vault_id": "",
+            "context": {'artifact_id': create_ticket_5_result_item[2]},
+        })
 
-    phantom.act(action="update ticket", parameters=parameters, assets=['servicenow'], callback=join_set_severity_3, name="update_ticket_6")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_6", assets=["servicenow"], callback=join_set_severity_3)
 
     return
 
+
 @phantom.playbook_block()
-def update_ticket_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_ticket_7() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'update_ticket_7' call
-    results_data_1 = phantom.collect2(container=container, datapath=['create_ticket_5:action_result.summary.created_ticket_id', 'create_ticket_5:action_result.parameter.table', 'create_ticket_5:action_result.parameter.context.artifact_id'], action_results=results)
-    formatted_data_1 = phantom.get_format_data(name='format_6')
+def update_ticket_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("update_ticket_7() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    create_ticket_5_result_data = phantom.collect2(container=container, datapath=["create_ticket_5:action_result.summary.created_ticket_id","create_ticket_5:action_result.parameter.table","create_ticket_5:action_result.parameter.context.artifact_id"], action_results=results)
+    format_6 = phantom.get_format_data(name="format_6")
 
     parameters = []
-    
+
     # build parameters list for 'update_ticket_7' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'id': results_item_1[0],
-                'table': results_item_1[1],
-                'fields': formatted_data_1,
-                'vault_id': "",
-                'is_sys_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[2]},
-            })
+    for create_ticket_5_result_item in create_ticket_5_result_data:
+        parameters.append({
+            "id": create_ticket_5_result_item[0],
+            "table": create_ticket_5_result_item[1],
+            "fields": format_6,
+            "vault_id": "",
+            "context": {'artifact_id': create_ticket_5_result_item[2]},
+        })
 
-    phantom.act(action="update ticket", parameters=parameters, assets=['servicenow'], callback=join_set_severity_3, name="update_ticket_7")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update ticket", parameters=parameters, name="update_ticket_7", assets=["servicenow"], callback=join_set_severity_3)
 
     return
 
+
 @phantom.playbook_block()
-def hunt_file_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('hunt_file_3() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'hunt_file_3' call
-    results_data_1 = phantom.collect2(container=container, datapath=['file_reputation_2:action_result.parameter.hash', 'file_reputation_2:action_result.parameter.context.artifact_id'], action_results=results)
+def hunt_file_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("hunt_file_3() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    file_reputation_2_result_data = phantom.collect2(container=container, datapath=["file_reputation_2:action_result.parameter.hash","file_reputation_2:action_result.parameter.context.artifact_id"], action_results=results)
 
     parameters = []
-    
-    # build parameters list for 'hunt_file_3' call
-    for results_item_1 in results_data_1:
-        if results_item_1[0]:
-            parameters.append({
-                'hash': results_item_1[0],
-                'type': "",
-                'range': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': results_item_1[1]},
-            })
 
-    phantom.act(action="hunt file", parameters=parameters, assets=['carbonblack'], callback=format_6, name="hunt_file_3")
+    # build parameters list for 'hunt_file_3' call
+    for file_reputation_2_result_item in file_reputation_2_result_data:
+        parameters.append({
+            "hash": file_reputation_2_result_item[0],
+            "type": "",
+            "range": "",
+            "context": {'artifact_id': file_reputation_2_result_item[1]},
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("hunt file", parameters=parameters, name="hunt_file_3", assets=["carbonblack"], callback=format_6)
 
     return
 
+
 @phantom.playbook_block()
-def format_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_6() called')
-    
+def format_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_6() called")
+
     template = """{{\"work_notes\": \"The malicious filehash {0} was found on the following hosts:\\n{1}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "hunt_file_3:action_result.parameter.hash",
-        "hunt_file_3:action_result.data.*.process.results.*.hostname",
+        "hunt_file_3:action_result.data.*.process.results.*.hostname"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_6")
 
@@ -905,17 +1247,28 @@ def format_6(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
-def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('format_5() called')
-    
+def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_5() called")
+
     template = """{{\"work_notes\": \"The following source IPs:\\n{1}\\n\\nwere detected with the following fileHash:\\n{0}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "block_hash_3:action_result.parameter.hash",
-        "artifact:*.cef.sourceAddress",
+        "artifact:*.cef.sourceAddress"
     ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_5")
 
@@ -923,18 +1276,19 @@ def format_5(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+
 @phantom.playbook_block()
 def on_finish(container, summary):
-    phantom.debug('on_finish() called')
-    # This function is called after all actions are completed.
-    # summary of all the action and/or all details of actions
-    # can be collected here.
+    phantom.debug("on_finish() called")
 
-    # summary_json = phantom.get_summary()
-    # if 'result' in summary_json:
-        # for action_result in summary_json['result']:
-            # if 'action_run_id' in action_result:
-                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)
-                # phantom.debug(action_results)
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
